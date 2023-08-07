@@ -24,8 +24,7 @@ class StoreManfacturerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_ar' => 'required|max:255|string',
-            'name_en' => 'required|max:255|string',
+            'name' => 'required|max:255|string',
         ];
     }
 }
