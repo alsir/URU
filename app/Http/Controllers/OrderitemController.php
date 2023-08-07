@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Product;
 use App\Models\Orderitem;
 use App\Http\Requests\StoreOrderitemRequest;
 use App\Http\Requests\UpdateOrderitemRequest;
@@ -15,7 +17,16 @@ class OrderitemController extends Controller
      */
     public function index()
     {
-        //
+        $orderitems = Orderitem::orderBy('id','Desc');
+        $products= Product::all();
+        $orders=Order::all();
+
+
+        return view('admin.orderitem.index')
+        ->with('orderitems',$orderitems)
+        ->with('products',$products)
+        ->with('orders',$orders)
+        ;
     }
 
     /**
@@ -25,62 +36,84 @@ class OrderitemController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.orderitem.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreOrderitemRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreOrderitemRequest $request)
     {
-        //
+        $orderitem=new Orderitem();
+        $orderitem->product_id = $request->product_id;
+        $orderitem->order_id = $request->order_id;
+        $orderitem->quantity = $request->quantity;
+        $orderitem ->save();
+        toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
+        return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Orderitem  $orderitem
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Orderitem $orderitem)
+    public function show($id)
     {
-        //
+        $orderitem = orderitem::find($id);
+        $product = product::find($orderitem->product_id);
+        return view('admin.orderitem.edit')->with('orderitem', $orderitem)
+        ->with('product', $product);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Orderitem  $orderitem
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Orderitem $orderitem)
+    public function edit($id)
     {
-        //
+        $orderitem = orderitem::find($id);
+        $products = Product::all();
+        $orders = Order::all();
+        return view('admin.orderitem.edit')->with('orderitem', $orderitem)
+        ->with('products', $products)
+        ->with('orders', $orders);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateOrderitemRequest  $request
-     * @param  \App\Models\Orderitem  $orderitem
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOrderitemRequest $request, Orderitem $orderitem)
+    public function update(StoreOrderitemRequest $request, $id)
     {
-        //
+        $orderitem=orderitem::find($id);
+        $orderitem->product_id = $request->product_id;
+        $orderitem->order_id = $request->order_id;
+        $orderitem->quantity = $request->quantity;
+        $orderitem ->save();
+        toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Orderitem  $orderitem
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Orderitem $orderitem)
+    public function destroy($id)
     {
-        //
+        $orderitem =  orderitem::find($id)->delete();
+        toastr()->success('تم حذف بيانات الطلب بنجاح !!');
+        return back();
     }
 }

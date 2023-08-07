@@ -215,20 +215,24 @@
                 </li>
                 <li class=" navigation-header"><span>القائمة</span>
                 </li>
-                <li class="nav-item"><a href="#"><i class="feather icon-zap"></i><span class="menu-title"
-                            data-i18n="Starter kit">قائمة رئيسية</span></a>
-                    <ul class="menu-content">
-                        <li><a href="sk-layout-2-columns.html"><i></i><span class="menu-item"
-                                    data-i18n="2 columns">قائمة فرعية 1</span></a>
-                        </li>
-                        <li class=""><a href="sk-layout-fixed-navbar.html"><i></i><span class="menu-item"
-                                    data-i18n="Fixed navbar">قائمة فرعية 2</span></a>
-                        </li>
-                        <li><a href="sk-layout-floating-navbar.html"><i></i><span class="menu-item"
-                                    data-i18n="Floating navbar">قائمة فرعية 3</span></a>
-                        </li>
-                    </ul>
+                <li class="nav-item {{ request()->is('admin/product') ? 'active' : '' }}"><a href="/admin/product"><i class="feather icon-zap"></i><span class="menu-title"
+                            data-i18n="Starter kit">المنتجات</span></a>
                 </li>
+                <li class="nav-item {{ request()->is('admin/order') ? 'active' : '' }}"><a href="/admin/order"><i class="feather icon-archive"></i><span class="menu-title"
+                    data-i18n="Starter kit">المبيعات</span></a>
+                </li>
+                <li class="nav-item {{ request()->is('admin/orederitem') ? 'active' : '' }}"><a href="/admin/orederitem"><i class="feather icon-layers"></i><span class="menu-title"
+                    data-i18n="Starter kit">وحدات المبيعات</span></a>
+                </li>
+                <li class=" navigation-header"><span>اعدادات المنتجات</span>
+                </li>
+                <li class="nav-item {{ request()->is('admin/manfacturer') ? 'active' : '' }}"><a href="/admin/manfacturer"><i class="feather icon-truck"></i><span class="menu-title"
+                    data-i18n="Starter kit">المصنع</span></a>
+                </li>
+                <li class="nav-item {{ request()->is('admin/category') ? 'active' : '' }}"><a href="/admin/category"><i class="feather icon-grid"></i><span class="menu-title"
+                    data-i18n="Starter kit">الفئة</span></a>
+                </li>
+
                 <li class=" navigation-header"><span>الإعدادات</span>
                 </li>
                 <li class="nav-item {{ request()->is('admin/users') ? 'active' : '' }}"><a href="/admin/users"><i

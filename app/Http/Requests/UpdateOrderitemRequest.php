@@ -13,7 +13,7 @@ class UpdateOrderitemRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class UpdateOrderitemRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'product_id' => 'required|numeric',
+            'order_id' => 'required|numeric',
+            'quantity' => 'required|numeric',
         ];
     }
 }

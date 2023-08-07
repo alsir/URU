@@ -13,7 +13,7 @@ class UpdateManfacturerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateManfacturerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name_en' => 'required|max:255|string',
+            'name_ar' => 'required|max:255|string',
         ];
     }
 }

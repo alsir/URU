@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ManfacturerController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderitemController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -25,12 +30,12 @@ Route::prefix('admin')->middleware(['auth','web'])->group(function () {
     Route::get('/edit_profile',[ProfileController::class,'edit_profile']);
     Route::post('/update_profile',[ProfileController::class,'update_profile']);
     Route::post('/update_password',[ProfileController::class,'update_password']);
-
-
-
+    Route::resource('/category',CategoryController::class);
+    Route::resource('/manfacturer',ManfacturerController::class);
+    Route::resource('/orderitem',OrderitemController::class);
+    Route::resource('/order',OrderController::class);
+    Route::resource('/product',ProductController::class);
     Route::resource('/users',UserController::class);
-
-
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
