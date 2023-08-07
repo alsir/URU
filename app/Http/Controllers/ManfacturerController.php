@@ -41,8 +41,7 @@ class ManfacturerController extends Controller
     public function store(StoreManfacturerRequest $request)
     {
         $manfacturer=new Manfacturer();
-        $manfacturer->name_en = $request->name_en;
-        $manfacturer->name_ar = $request->name_ar;
+        $manfacturer->name = $request->name;
         $manfacturer ->save();
         toastr()->success('تم حفظ بيانات المصنع بنجاح !!');
         return back();
@@ -82,8 +81,7 @@ class ManfacturerController extends Controller
     public function update(UpdateManfacturerRequest $request, $id)
     {
         $manfacturer=manfacturer::find($id);
-        $manfacturer->name_en = $request->name_en;
-        $manfacturer->name_ar = $request->name_ar;
+        $manfacturer->name = $request->name;
         $manfacturer ->update();
         toastr()->success('تم حفظ بيانات المصنع بنجاح !!');
         return back();

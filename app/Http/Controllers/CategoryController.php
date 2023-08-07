@@ -41,14 +41,7 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $category=new category();
-        $category->name_ar = $request->name_ar;
-        $category->name_en = $request->name_en;
-        if ($request->hasFile('category_photo')) {
-            if ($request->file('category_photo')->isValid()) {
-                $path = $request->file('category_photo')->store('users','public_file');
-                $category->photo = 'files/'.$path;
-            }
-        }
+        $category->name = $request->name;
         $category ->save();
         toastr()->success('تم حفظ بيانات الفئة بنجاح !!');
         return back();
@@ -88,14 +81,7 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, $id)
     {
         $category=category::find($id);
-        $category->name_ar = $request->name_ar;
-        $category->name_en = $request->name_en;
-        if ($request->hasFile('category_photo')) {
-            if ($request->file('category_photo')->isValid()) {
-                $path = $request->file('category_photo')->store('users','public_file');
-                $category->photo = 'files/'.$path;
-            }
-        }
+        $category->name = $request->name;
         $category ->update();
         toastr()->success('تم حفظ بيانات الفئة بنجاح !!');
         return back(); 

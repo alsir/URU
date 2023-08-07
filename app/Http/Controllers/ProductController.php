@@ -119,22 +119,10 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, $id)
     {
         $product= Product::find($id);
-        $product->name_ar = $request->name_ar;
-        $product->name_en = $request->name_en;
-        $product->type_id = $request->type_id;
+        $product->name = $request->name;
         $product->category_id = $request->category_id;
         $product->manfacturer_id = $request->manfacturer_id;
-        $product->description_ar = $request->description_ar;
-        $product->description_en = $request->description_en;
         $product->quantity = $request->quantity;
-        $product->discount = $request->discount;
-        $product->is_available = $request->is_available;
-        if ($request->hasFile('photo')) {
-            if ($request->file('photo')->isValid()) {
-                $path = $request->file('photo')->store('users','public_file');
-                $product->photo = 'files/'.$path;
-            }
-        }
         $product ->save();
         toastr()->success('تم حفظ بيانات المنتج بنجاح !!');
         return back();
