@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FilterController;
 use App\Http\Controllers\ManfacturerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderitemController;
@@ -30,6 +31,7 @@ Route::prefix('admin')->middleware(['auth','web'])->group(function () {
     Route::get('/edit_profile',[ProfileController::class,'edit_profile']);
     Route::post('/update_profile',[ProfileController::class,'update_profile']);
     Route::post('/update_password',[ProfileController::class,'update_password']);
+    Route::get('/order/someorders',[FilterController::class,'sort_by_date']);
     Route::resource('/category',CategoryController::class);
     Route::resource('/manfacturer',ManfacturerController::class);
     Route::resource('/orderitem',OrderitemController::class);

@@ -18,17 +18,15 @@ class OrderController extends Controller
     {
         $orders = Order::orderBy('id','Desc')->get();
         $order_count= $orders->count();
-        $new_order=Order::where('order_status',0)->count();
-        $received_order=Order::where('order_status',1)->count();
-        $delivered_order=Order::where('order_status',2)->count();
+        $orders_by_sells=Order::where('order_type',0)->count();
+        $orders_by_projects=Order::where('order_type',1)->count();
 
 
         return view('admin.order.index')
         ->with('orders',$orders)
         ->with('order_count',$order_count)
-        ->with('new_order',$new_order)
-        ->with('received_order',$received_order)
-        ->with('delivered_order',$delivered_order)
+        ->with('orders_by_sells',$orders_by_sells)
+        ->with('orders_by_projects',$orders_by_projects);
         ;
     }
 

@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="media-body my-auto">
-                            <h4 class="font-weight-bolder mb-0">{{$new_order}}</h4>
+                            <h4 class="font-weight-bolder mb-0">{{$orders_by_projects}}</h4>
                             <p class="card-text font-small-3 mb-0">المشاريع</p>
                         </div>
                     </div>
@@ -51,8 +51,8 @@
                             </div>
                         </div>
                         <div class="media-body my-auto">
-                            <h4 class="font-weight-bolder mb-0">{{$received_order}}</h4>
-                            <p class="card-text font-small-3 mb-0">مجموع المبيعات</p>
+                            <h4 class="font-weight-bolder mb-0">{{$orders_by_sells}}</h4>
+                            <p class="card-text font-small-3 mb-0"> المبيعات</p>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,14 @@
         </div>
     </div>
 </div>
-    
+<form action="/admin/order/someorders" method="get">
+    @csrf
+    <div class="input-group mb-3">
+        <input type="date" class="form-control" name="start_date">
+        <input type="date" class="form-control" name="end_date">
+        <button class="btn btn-primary" type="submit">موافقة</button>
+    </div>
+</form>
     <div class="content-body">
         <div class="col-12">
             <div class="card">
