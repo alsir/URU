@@ -24,32 +24,6 @@
         </div>
     </div>
 </div>
-<div class="col-xl-2 col-md-4 col-sm-6">
-    <div class="card text-center">
-        <div class="card-body">
-            <div class="avatar bg-warning p-50 mb-1">
-                <div class="avatar-content">
-                    <i data-feather="message-square" class="font-medium-5 fa fa-check"></i>
-                </div>
-            </div>
-            <h2 class="font-weight-bolder">{{$in_stack}}</h2>
-            <p class="card-text">متوفرة</p>
-        </div>
-    </div>
-</div>
-<div class="col-xl-2 col-md-4 col-sm-6">
-    <div class="card text-center">
-        <div class="card-body">
-            <div class="avatar bg-danger p-50 mb-1">
-                <div class="avatar-content">
-                    <i data-feather="shopping-bag" class="font-medium-5 fa fa-remove"></i>
-                </div>
-            </div>
-            <h2 class="font-weight-bolder">{{$out_off_stack}}</h2>
-            <p class="card-text">كمية اقل من 5  </p>
-        </div>
-    </div>
-</div>
 
 </div>
    

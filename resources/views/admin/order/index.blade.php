@@ -166,7 +166,7 @@
                                     <div class="form-group">
                                         <label for="email-id-vertical"> نوع الطلب</label>
                                         <select name="order_type" class="form-control" required>
-                                            <option value="0" @selected(old('order_type') == 0)>مببيعات</option>
+                                            <option value="0" @selected(old('order_type') == 0)>مبيعات</option>
                                             <option value="1" @selected(old('order_type') == 1)>مشاريع</option>
                                         </select>
                                     </div>

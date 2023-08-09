@@ -24,28 +24,32 @@ class CartController extends Controller
         ->with('manfacturers', $manfacturers);
     }
     public function orderingComfirming(Request $request){
+     $cartItems = \Cart::getContent();
      $order = new Order();
      $order->name = $request->name;
      $order->total=$request->total;
      $order->order_type = $request->order_type;
      $order->save();
      $order_id = $order->id;
-     foreach( $request->orderitems as $orderitem){
-        $orderitem=new Orderitem();
-        $orderitem->product_id = $request->product_id;
-        $orderitem->order_id = $order_id;
-        $orderitem->quantity = $request->quantity;
-        $orderitem ->save();
+     foreach($cartItems as $cartItem){
+        $cartItem=new Orderitem();
+        $cartItem->product_id = $cartItem->id;
+        $cartItem->order_id = $order_id;
+        $cartItem->quantity = $cartItem->quantity;
+        $cartItem ->save();
+        $product = product::find($cartItem->product_id);
+        $product->quantity =- $cartItem->quantity;
+        $product ->save();
     }
     toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
     Cart::clear();
+    return back();
 
     }
     
     public function cartList()
     {
         $cartItems = \Cart::getContent();
-        // dd($cartItems);
         return view('admin.cart.list', compact('cartItems'));
     }
 
@@ -58,6 +62,7 @@ class CartController extends Controller
             'price' => $request->price,
             'quantity' => $request->quantity,
         ]);
+
         toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
 
         return back();

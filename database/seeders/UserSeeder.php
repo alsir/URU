@@ -34,5 +34,25 @@ class UserSeeder extends Seeder
         $user->is_active = 1;
         $user->profile_pic = 'files/profile_photos/'.$rand.'profile.png';
         $user->save();
+
+        $user = new User();
+        $user->name = 'sales';
+        $user->email = 'sales@laravel.com';
+        $user->password = Hash::make('01223355');
+        $user->phone = '0123456789';
+        $user->user_type_id = 2;
+        $user->is_active = 1;
+        $user->profile_pic = 'files/profile_photos/'.$rand.'profile.png';
+        $user->save();
+        
+        $user = new User();
+        $user->name = 'storage';
+        $user->email = 'storage@laravel.com';
+        $user->password = Hash::make('0222222222');
+        $user->phone = '0123456789';
+        $user->user_type_id = 3;
+        $user->is_active = 1;
+        $user->profile_pic = 'files/profile_photos/'.$rand.'profile.png';
+        $user->save();
     }
 }

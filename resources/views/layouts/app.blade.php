@@ -143,17 +143,22 @@
                         href="/admin/dashboard"><i class="feather icon-home"></i><span class="menu-title"
                             data-i18n="Dashboard">الرئيسية</span></a>
                 </li>
+                @if(Auth::user()->user_type_id == 1)
                 <li class=" navigation-header"><span>القائمة</span>
                 </li>
                 <li class="nav-item {{ request()->is('admin/product') ? 'active' : '' }}"><a href="/admin/product"><i class="feather icon-zap"></i><span class="menu-title"
                             data-i18n="Starter kit">المنتجات</span></a>
                 </li>
+                
                 <li class="nav-item {{ request()->is('admin/order') ? 'active' : '' }}"><a href="/admin/order"><i class="feather icon-archive"></i><span class="menu-title"
                     data-i18n="Starter kit">المبيعات</span></a>
                 </li>
                 <li class="nav-item {{ request()->is('admin/orderitem') ? 'active' : '' }}"><a href="/admin/orderitem"><i class="feather icon-layers"></i><span class="menu-title"
                     data-i18n="Starter kit">وحدات المبيعات</span></a>
                 </li>
+                @endif
+                @if(Auth::user()->user_type_id  == '1' || '2')
+
                 <li class=" navigation-header"><span>اعدادات المنتجات</span>
                 </li>
                 <li class="nav-item {{ request()->is('admin/manfacturer') ? 'active' : '' }}"><a href="/admin/manfacturer"><i class="feather icon-truck"></i><span class="menu-title"
@@ -162,13 +167,15 @@
                 <li class="nav-item {{ request()->is('admin/category') ? 'active' : '' }}"><a href="/admin/category"><i class="feather icon-grid"></i><span class="menu-title"
                     data-i18n="Starter kit">الفئة</span></a>
                 </li>
-
+                @endif
+                @if(Auth::user()->user_type_id  == 1)
                 <li class=" navigation-header"><span>الإعدادات</span>
                 </li>
                 <li class="nav-item {{ request()->is('admin/users') ? 'active' : '' }}"><a href="/admin/users"><i
                             class="fa fa-lock"></i><span class="menu-title" data-i18n="Email">مدراء
                             النظام</span></a>
                 </li>
+                @endif
             </ul>
         </div>
     </div>

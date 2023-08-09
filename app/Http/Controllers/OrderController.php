@@ -18,6 +18,8 @@ class OrderController extends Controller
     {
         $orders = Order::orderBy('id','Desc')->get();
         $order_count= $orders->count();
+        $orders_sells=Order::where('order_type',0);
+        $orders_products=Order::where('order_type',1);
         $orders_by_sells=Order::where('order_type',0)->count();
         $orders_by_projects=Order::where('order_type',1)->count();
 
@@ -26,7 +28,9 @@ class OrderController extends Controller
         ->with('orders',$orders)
         ->with('order_count',$order_count)
         ->with('orders_by_sells',$orders_by_sells)
-        ->with('orders_by_projects',$orders_by_projects);
+        ->with('orders_by_projects',$orders_by_projects)
+        ->with('orders_products',$orders_products)
+        ->with('orders_sells',$orders_sells)
         ;
     }
 

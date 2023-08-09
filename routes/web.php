@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderitemController;
 use App\Http\Controllers\ManfacturerController;
 use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +46,7 @@ Route::prefix('admin')->middleware(['auth','web'])->group(function () {
     Route::resource('/order',OrderController::class);
     Route::resource('/product',ProductController::class);
     Route::resource('/users',UserController::class);
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard',[FrontendController::class,'index']);
     
 });
 require __DIR__ . '/auth.php';

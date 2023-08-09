@@ -19,17 +19,12 @@ class ProductController extends Controller
     {
         $products = Product::orderBy('id','Desc')->get();
         $products_counter= $products->count();
-        $out_off_stack=Product::where('is_available', 0)->count();
-        $in_stack= Product::where('is_available', 1)->count();
-        
         $categories = Category::all();
         $manfacturers = Manfacturer::all();
 
         return view('admin.product.index')
         ->with('products',$products)
         ->with('products_counter',$products_counter)
-        ->with('out_off_stack', $out_off_stack)
-        ->with('in_stack', $in_stack)
         ->with('categories', $categories)
         ->with('manfacturers', $manfacturers)
         ;

@@ -14,7 +14,7 @@ class UserTypeSeeder extends Seeder
      */
     public function run()
     {
-        $types = ['admin', 'lawyer'];
+        $types = ['admin', 'sales' ,'storage' ];
 
         foreach ($types as $type) {
             $new_type = new UserType();
