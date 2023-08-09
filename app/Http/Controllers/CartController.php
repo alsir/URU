@@ -3,15 +3,50 @@
 namespace App\Http\Controllers;
 
 use Cart;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Orderitem;
+use App\Models\Manfacturer;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    public function ordering()
+    {
+        $products = Product::all();
+        $categories = Category::all();
+        $manfacturers = Manfacturer::all();
+
+        return view('admin.cart.index')
+        ->with('products', $products)
+        ->with('categories', $categories)
+        ->with('manfacturers', $manfacturers);
+    }
+    public function orderingComfirming(Request $request){
+     $order = new Order();
+     $order->name = $request->name;
+     $order->total=$request->total;
+     $order->order_type = $request->order_type;
+     $order->save();
+     $order_id = $order->id;
+     foreach( $request->orderitems as $orderitem){
+        $orderitem=new Orderitem();
+        $orderitem->product_id = $request->product_id;
+        $orderitem->order_id = $order_id;
+        $orderitem->quantity = $request->quantity;
+        $orderitem ->save();
+    }
+    toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
+    Cart::clear();
+
+    }
+    
     public function cartList()
     {
         $cartItems = \Cart::getContent();
         // dd($cartItems);
-        return view('admin.cart.index', compact('cartItems'));
+        return view('admin.cart.list', compact('cartItems'));
     }
 
 
@@ -25,7 +60,7 @@ class CartController extends Controller
         ]);
         toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
 
-        return redirect()->route('cart.list');
+        return back();
     }
 
     public function updateCart(Request $request)
@@ -40,17 +75,17 @@ class CartController extends Controller
             ]
         );
 
-        toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
+        toastr()->success('تم تعديل بيانات الطلب بنجاح !!');
 
-        return redirect()->route('cart.list');
+        return back();
     }
 
     public function removeCart(Request $request)
     {
         \Cart::remove($request->id);
-        toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
+        toastr()->success('تم حذف بيانات الطلب بنجاح !!');
 
-        return redirect()->route('cart.list');
+        return back();
     }
 
     public function clearAllCart()

@@ -27,7 +27,6 @@ class FilterController extends Controller
         $order_count= $orders->count();
         $orders_by_sells=$orders->where('order_type',0)->count();
         $orders_by_projects=$orders->where('order_type',1)->count();
-
         return view('admin.order.index')->with('orders',$orders)
         ->with('order_count',$order_count)
         ->with('orders_by_sells',$orders_by_sells)

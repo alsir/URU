@@ -151,7 +151,7 @@
                 <li class="nav-item {{ request()->is('admin/order') ? 'active' : '' }}"><a href="/admin/order"><i class="feather icon-archive"></i><span class="menu-title"
                     data-i18n="Starter kit">المبيعات</span></a>
                 </li>
-                <li class="nav-item {{ request()->is('admin/orderitem') ? 'active' : '' }}"><a href="/admin/or deritem"><i class="feather icon-layers"></i><span class="menu-title"
+                <li class="nav-item {{ request()->is('admin/orderitem') ? 'active' : '' }}"><a href="/admin/orderitem"><i class="feather icon-layers"></i><span class="menu-title"
                     data-i18n="Starter kit">وحدات المبيعات</span></a>
                 </li>
                 <li class=" navigation-header"><span>اعدادات المنتجات</span>
@@ -213,6 +213,7 @@
     <!-- BEGIN: Theme JS-->
     <script src="{{ asset('/app-assets/js/core/app-menu.js') }}"></script>
     <script src="{{ asset('/app-assets/js/core/app.js') }}"></script>
+    <script src="{{ asset('/app-assets/js/scripts/forms/form-number-input.js') }}"></script>
     <!-- END: Theme JS-->
     @yield('scriptjs')
     <!-- BEGIN: Page JS-->

@@ -111,6 +111,7 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
+        $order_items = Orderitem::where('order_id', $id)->delete();
         $order =  order::find($id)->delete();
         toastr()->success('تم حذف بيانات الطلب بنجاح !!');
         return back();

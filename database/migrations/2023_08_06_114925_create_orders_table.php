@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('order_type');
-            $table->double('total', 8, 2);
+            $table->integer('total');
             $table->timestamps();
         });
     }

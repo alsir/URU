@@ -73,7 +73,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">كل الطلبات </h4>
-                    <a href="" class="btn btn-primary" data-toggle="modal" data-target="#default">إضافة </a>
+                    <a href="/admin/ordering" class="btn btn-primary" >إضافة </a>
                 </div>
 
                 <div class="card-content">
