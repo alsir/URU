@@ -7,7 +7,7 @@
         <div class="card-body">
                 <div class="col-12 col-md-7">
                     <h4>{{$product->name}}</h4>
-                    <span class="card-text item-company">بواسطة <a href="javascript:void(0)" class="company-name">{{$manfacturer->name_ar}}</a></span>
+                    <span class="card-text item-company">بواسطة {{$manfacturer->name}}</span>
                     <div class="ecommerce-details-price d-flex flex-wrap mt-1">
                         <h4 class="item-price mr-1">السعر - {{$product->price}}</h4>
                         <h4 class="item-price mr-1">الكمية - {{$product->quantity}}</h4>

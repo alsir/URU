@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Manfacturer;
 use App\Http\Requests\StoreManfacturerRequest;
 use App\Http\Requests\UpdateManfacturerRequest;
@@ -56,7 +57,9 @@ class ManfacturerController extends Controller
     public function show($id)
     {
         $manfacturer = Manfacturer::find($id);
-        return view('admin.manfacturer.show')->with('manfacturer', $manfacturer);
+        $products = Product::where('manfacturer_id' , $manfacturer->id)->get();
+        return view('admin.manfacturer.show')->with('manfacturer', $manfacturer)
+        ->with('products', $products);
     }
 
     /**

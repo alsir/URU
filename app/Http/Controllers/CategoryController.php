@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Models\Product;
 
 class CategoryController extends Controller
 {
@@ -56,7 +57,9 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
-        return view('admin.category.show')->with('category', $category);
+        $products = Product::where('category_id' , $category->id)->get();
+        return view('admin.category.show')->with('category', $category)
+        ->with('products', $products);
     }
 
     /**

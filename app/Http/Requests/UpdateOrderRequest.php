@@ -24,7 +24,7 @@ class UpdateOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'total' => 'required|numeric|digits_between:3,15',
+            'total' => 'required|numeric',
             'name' => 'required|max:255|string',
         ];
     }

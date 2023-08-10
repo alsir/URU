@@ -15,7 +15,7 @@ class Product extends Model
     ];
     public function manfacturer()
     {
-        return $this->hasMany(manfacturer::class , 'id','manfacturer_id');
+        return $this->hasone(manfacturer::class , 'id','manfacturer_id');
     }
     public function categroy()
     {
@@ -23,6 +23,6 @@ class Product extends Model
     }
     public function orderitem()
     {
-        return $this->belongsToMany(Orderitem::class);
+        return $this->hasMany(Orderitem::class);
     }
 }

@@ -41,7 +41,7 @@
                                 <tbody>
                                     @foreach ($categories as $category)
                                         <tr>
-                                            <td>{{ $category->id }}</td>
+                                            <td><a href="/admin/category/{{$category->id}}">{{ $category->id }}</a></td>
                                             
                                             <td>{{ $category->name }}</td>
                                             

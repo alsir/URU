@@ -43,7 +43,7 @@
                                 <tbody>
                                     @foreach ($manfacturers as $manfacturer)
                                         <tr>
-                                            <td>{{$manfacturer->id }}</td>
+                                            <td><a href="/admin/manfacturer/{{$manfacturer->id}}">{{$manfacturer->id }}</a></td>
                                             <td>{{ $manfacturer->name }}</td>
                                                <td> <button class="btn btn-success" name="edit_button"
                                                     value="{{ $manfacturer->id }}" data-toggle="modal"
