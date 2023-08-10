@@ -28,7 +28,7 @@ class UpdateProductRequest extends FormRequest
             'quantity' => 'required|numeric',
             'manfacturer_id' => 'required|numeric',
             'category_id' => 'required|numeric',
-            'price' => 'required|numeric',
+            'price' => 'required|numeric|digits_between:3,15',
         ];
     }
 }

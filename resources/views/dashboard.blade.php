@@ -37,7 +37,7 @@
                                         <td><a href="/admin/product/{{$product->id}}">{{$product->id}}</a></td>
                                         <td>{{ $product->name }}</td>
                                         <td>{{ $product->quantity }}</td>
-                                        <td>{{ $manufacturer->name = $manfacturers->where('id' ,$product->manfacturer_id ) }}</td>
+                                        <td>{{ $product->manfacturer_id }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -75,12 +75,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($products_with_low_quanitiy as $product)
+                                @foreach ($products_with_low_quanitiys as $products_with_low_quanitiy)
                                     <tr>
-                                        <td><a href="/admin/product/{{$product->id}}">{{$product->id}}</a></td>
-                                        <td>{{ $product->name }}</td>
-                                        <td>{{ $product->quantity }}</td>
-                                        <td>{{ $manufacturer->name = $manfacturers->where('id' ,$product->manfacturer_id ) }}</td>
+                                        <td><a href="/admin/product/{{$products_with_low_quanitiy->id}}">{{$products_with_low_quanitiy->id}}</a></td>
+                                        <td>{{ $products_with_low_quanitiy->name }}</td>
+                                        <td>{{ $products_with_low_quanitiy->quantity }}</td>
+                                        <td>{{ $products_with_low_quanitiy->manfacturer_id }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

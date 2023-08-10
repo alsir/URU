@@ -65,7 +65,7 @@
                                             <td><a href="/admin/product/{{$product->id}}">{{$product->id}}</a></td>
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->quantity }}</td>
-                                            <td>{{ $manufacturer->name = $manfacturers->where('id' ,$product->id ) }}</td>
+                                            <td>{{ $product->manufacturer_id}}</td>
                                             
                                                <td> <button class="btn btn-success" name="edit_button"
                                                     value="{{ $product->id }}" data-toggle="modal"
@@ -128,7 +128,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="email-id-vertical">فئة المنتج</label>
+                                        <label for="email-id-vertical">مصنع المنتج</label>
                                         <select name="manfacturer_id" class="form-control" required>
                                             @foreach ($manfacturers as $manfacturer)
                                                 <option value="{{ $manfacturer->id }}" @selected(old('manfacturer_id') == $manfacturer->id)>
@@ -140,14 +140,14 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="first-name-vertical">الكمية</label>
-                                        <input type="number" class="form-control @error('quantity') is-invalid @enderror"
+                                        <input type="number" max="1000000000000" class="form-control @error('quantity') is-invalid @enderror"
                                             name="quantity" placeholder="الكمية" value="{{ old('quantity') }}" required>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="first-name-vertical">السعر</label>
-                                        <input type= "number"step="0.01" min="0" max="10" class="form-control @error('price') is-invalid @enderror"
+                                        <input type= "number"step="0.01" min="0" max="1000000" class="form-control @error('price') is-invalid @enderror"
                                             name="price" placeholder="السعر" value="{{ old('price') }}" required>
                                     </div>
                                 </div>

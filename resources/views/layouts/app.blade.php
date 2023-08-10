@@ -143,13 +143,14 @@
                         href="/admin/dashboard"><i class="feather icon-home"></i><span class="menu-title"
                             data-i18n="Dashboard">الرئيسية</span></a>
                 </li>
-                @if(Auth::user()->user_type_id == 1)
+                @if(Auth::user()->user_type_id == 1 || 2)
                 <li class=" navigation-header"><span>القائمة</span>
                 </li>
                 <li class="nav-item {{ request()->is('admin/product') ? 'active' : '' }}"><a href="/admin/product"><i class="feather icon-zap"></i><span class="menu-title"
                             data-i18n="Starter kit">المنتجات</span></a>
                 </li>
-                
+                @endif
+                @if(Auth::user()->user_type_id == 1)
                 <li class="nav-item {{ request()->is('admin/order') ? 'active' : '' }}"><a href="/admin/order"><i class="feather icon-archive"></i><span class="menu-title"
                     data-i18n="Starter kit">المبيعات</span></a>
                 </li>
@@ -157,7 +158,7 @@
                     data-i18n="Starter kit">وحدات المبيعات</span></a>
                 </li>
                 @endif
-                @if(Auth::user()->user_type_id  == '1' || '2')
+                @if(Auth::user()->user_type_id  == 1 || 2)
 
                 <li class=" navigation-header"><span>اعدادات المنتجات</span>
                 </li>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories');
             $table->foreignId('manfacturer_id')->constrained('manfacturers');
             $table->integer('quantity');
-            $table->integer('price');
+            $table->bigInteger('price');
             $table->timestamps();
         });
     }

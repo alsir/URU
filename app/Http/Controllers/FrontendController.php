@@ -10,10 +10,10 @@ class FrontendController extends Controller
     public function index()
     {
        $products = Product::orderBy('id','Desc')->get();
-       $products_with_low_quanitiy = Product::where('quantity' ,'<' , 5);
+       $products_with_low_quanitiys = Product::where('quantity' ,'<' , 5);
 
         return view('dashboard')->with('products',$products)
-        ->with('products_with_low_quanitiy',$products_with_low_quanitiy)
+        ->with('products_with_low_quanitiys',$products_with_low_quanitiys)
         ;
 }
 }
