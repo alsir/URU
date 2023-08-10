@@ -1,23 +1,26 @@
 @extends('layouts.app')
 @section('title', 'المنتجات ')
 @section('content')
-<section class="app-ecommerce-details">
+<section class="app-ecommerce-details col-5">
     <div class="card">
         <!-- Product Details starts -->
         <div class="card-body">
                 <div class="col-12 col-md-7">
                     <h4>{{$product->name}}</h4>
-                    <span class="card-text item-company">بواسطة {{$manfacturer->name}}</span>
+                    <span class="card-text item-company">بواسطة 
+                        @foreach ($manfacturering as $manfacturer)
+                       {{ $manfacturer->name }}
+                        @endforeach</span>
                     <div class="ecommerce-details-price d-flex flex-wrap mt-1">
                         <h4 class="item-price mr-1">السعر - {{$product->price}}</h4>
                         <h4 class="item-price mr-1">الكمية - {{$product->quantity}}</h4>
                         
                     </div>
                     <p class="card-text">
-                        {{$category->name}}
+                        @foreach ($categorying as $category)
+                        {{ $category->name }}
+                         @endforeach
                     </p>
-                    <hr />
-                    
                     <hr />
                     <div class="d-flex flex-column flex-sm-row pt-1">
                         <button class="btn btn-success" name="edit_button"

@@ -69,11 +69,11 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = product::find($id);
-        $category = Category::where('id', $product->category_id)->get();
-        $manfacturer = Manfacturer::where('id', $product->manfacturer_id)->get();
+        $categorying = Category::where('id', $product->category_id)->get();
+        $manfacturering = Manfacturer::where('id', $product->manfacturer_id)->get();
         return view('admin.product.show')->with('product', $product)
-        ->with('category', $category)
-        ->with('manfacturer', $manfacturer)
+        ->with('categorying', $categorying)
+        ->with('manfacturering', $manfacturering)
         ;
     }
 
