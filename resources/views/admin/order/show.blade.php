@@ -12,10 +12,6 @@
             @endif
         </h3>
         <p> منفذ العملية {{$order->name}}</p>
-
-        <p class="card-text">
-            تعليق:{{$order->note}}
-        </p>
         <p class="card-text">
             المجموع:{{$order->total}} 
         </p>

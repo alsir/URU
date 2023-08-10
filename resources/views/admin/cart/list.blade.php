@@ -30,7 +30,7 @@
                 </tfoot>
             </table>
         </div>
-        <form class="form form-vertical" action="/admin/orderingComfirming" method="POST" enctype="multipart/form-data">
+        <form class="form form-vertical" action="/admin/ordering" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden"  value="{{ Auth::user()->name }}"name="name" >
             <input type="hidden" value="{{ Cart::getTotal() }}" name="total">

@@ -32,10 +32,12 @@ class CartController extends Controller
      $order->save();
      $order_id = $order->id;
      foreach($cartItems as $cartItem){
+        $product_id = $cartItem->id;
+        $quantity= $cartItem->quantity;
         $cartItem=new Orderitem();
-        $cartItem->product_id = $cartItem->id;
+        $cartItem->product_id = $product_id;
         $cartItem->order_id = $order_id;
-        $cartItem->quantity = $cartItem->quantity;
+        $cartItem->quantity = $quantity;
         $cartItem ->save();
         $product = product::find($cartItem->product_id);
         $product->quantity =- $cartItem->quantity;

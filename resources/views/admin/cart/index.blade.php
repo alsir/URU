@@ -35,11 +35,12 @@
                                             <input type="number" class="form-control @error('quantity') is-invalid @enderror"
                                                 name="quantity" placeholder="الكمية" value="{{ old('quantity') }}" required>
                                         </div>
-                                        <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">اضافة المنتج</button>
+                                        <button class="px-2 py-1.5 text-white text-sm bg-primary rounded">اضافة المنتج</button>
                                     </form>
                                 </div>   
                             </div>
                             @endforeach
+                            <a href="/admin/cart" class="btn btn-primary" >متابعت الطلب </a>
                 </div>
             </div>
         </div>
