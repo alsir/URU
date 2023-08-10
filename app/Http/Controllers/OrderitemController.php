@@ -17,7 +17,7 @@ class OrderitemController extends Controller
      */
     public function index()
     {
-        $orderitems = Orderitem::orderBy('id','Desc');
+        $orderitems = Orderitem::orderBy('id','Desc')->get();
         $products= Product::all();
         $orders=Order::all();
 

@@ -141,7 +141,7 @@
                         href="/admin/dashboard"><i class="feather icon-home"></i><span class="menu-title"
                             data-i18n="Dashboard">الرئيسية</span></a>
                 </li>
-                @if(Auth::user()->user_type_id == 1 || 2)
+                @if(Auth::user()->user_type_id == 1 || Auth::user()->user_type_id == 2)
                 <li class=" navigation-header"><span>القائمة</span>
                 </li>
                 <li class="nav-item {{ request()->is('admin/product') ? 'active' : '' }}"><a href="/admin/product"><i class="feather icon-zap"></i><span class="menu-title"
@@ -156,7 +156,7 @@
                     data-i18n="Starter kit">وحدات المبيعات</span></a>
                 </li>
                 @endif
-                @if(Auth::user()->user_type_id  == 1 || 2)
+                @if(Auth::user()->user_type_id  == 1 || Auth::user()->user_type_id == 2)
 
                 <li class=" navigation-header"><span>اعدادات المنتجات</span>
                 </li>

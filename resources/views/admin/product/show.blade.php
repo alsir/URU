@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'المنتجات ')
 @section('content')
-<section class="app-ecommerce-details col-5">
+<section class="app-ecommerce-details col-4">
     <div class="card">
         <!-- Product Details starts -->
         <div class="card-body">
@@ -29,13 +29,14 @@
                       <button class="btn btn-danger mr-2"
                                                     onclick="if(confirm('هل أنت متأكد ؟')){document.getElementById('delete-users_{{ $product->id }}').submit();}else{
                                             event.preventDefault();}"><i
-                                                        class="fa fa-trash"></i></button>
+                                                        class="fa fa-trash"></i>
                                                 <form id="delete-users_{{ $product->id }}"
                                                     action="/admin/product/{{ $product->id }}" method="POST"
                                                     class="d-none">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
+                       </button>
                     </div>
                 </div>
             </div>
