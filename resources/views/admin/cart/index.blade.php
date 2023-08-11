@@ -19,9 +19,9 @@
                     <div class="container px-12 py-8 mx-auto">
                         <h3 class="text-2xl font-bold text-purple-700">منتجاتنا</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
-                        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        <div class="grid grid-cols-1 gap-2 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 d-lg-flex felx-row">
                             @foreach ($products as $product)
-                            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                            <div class="w-75 max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md ">
                                 <div class="px-5 py-3">
                                     <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
                                     <span class="mt-2 text-gray-500">${{ $product->price }}</span>
@@ -33,15 +33,16 @@
                                         <div class="form-group">
                                             <label for="first-name-vertical">الكمية</label>
                                             <input type="number" class="form-control @error('quantity') is-invalid @enderror"
-                                                name="quantity" placeholder="الكمية" value="{{ old('quantity') }}" required>
+                                                name="quantity" min ='1' max="{{$product->quantity}}" placeholder="الكمية" value="{{ old('quantity') }}" required>
                                         </div>
                                         <button class="px-2 py-1.5 text-white text-sm bg-primary rounded">اضافة المنتج</button>
                                     </form>
                                 </div>   
                             </div>
                             @endforeach
-                            <a href="/admin/cart" class="btn btn-primary" >متابعت الطلب </a>
+                            
                 </div>
+                <a href="/admin/cart" class="btn btn-primary" >متابعة الطلب </a>
             </div>
         </div>
     </div>
