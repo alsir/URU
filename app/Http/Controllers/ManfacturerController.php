@@ -98,6 +98,7 @@ class ManfacturerController extends Controller
      */
     public function destroy($id)
     {
+            $products = Product::where('manfacturer_id', $id)->delete();
             $manfacturer =  Manfacturer::find($id)->delete();
             toastr()->success('تم حذف بيانات المصنع بنجاح !!');
             return back();

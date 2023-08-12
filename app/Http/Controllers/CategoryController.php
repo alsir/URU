@@ -97,7 +97,8 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    { 
+        $products= Product::where('category_id' , $id)->delete();
         $category =  Category::find($id)->delete();
             toastr()->success('تم حذف بيانات الفئة بنجاح !!');
             return back();

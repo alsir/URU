@@ -40,7 +40,7 @@ class CartController extends Controller
         $cartItem->quantity = $quantity;
         $cartItem ->save();
         $product = product::find($cartItem->product_id);
-        $product->quantity =- $cartItem->quantity;
+        $product->quantity = $product->quantity - $cartItem->quantity;
         $product ->save();
     }
     toastr()->success('تم حفظ بيانات الطلب بنجاح !!');

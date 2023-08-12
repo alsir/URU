@@ -16,7 +16,7 @@
                     <label for="email-id-vertical">فئة المنتج</label>
                     <select name="category_id" class="form-control" required>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}" @selected(old('category_id', $product->category_id) == $category->id)>
+                            <option value="{{ $category->id }}" @selected(old('category_id', $product->category_id))>
                                 {{ $category->name }}</option>
                         @endforeach
                     </select>
@@ -24,10 +24,10 @@
             </div>
             <div class="col-6">
                 <div class="form-group">
-                    <label for="email-id-vertical">فئة المنتج</label>
+                    <label for="email-id-vertical">المصنع</label>
                     <select name="manfacturer_id" class="form-control" required>
                         @foreach ($manfacturers as $manfacturer)
-                            <option value="{{ $manfacturer->id }}" @selected(old('manfacturer_id', $product->manfacturer_id) == $manfacturer->id)>
+                            <option value="{{ $manfacturer->id }}" @selected(old('manfacturer_id', $product->manfacturer_id))>
                                 {{ $manfacturer->name }}</option>
                         @endforeach
                     </select>
