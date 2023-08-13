@@ -19,7 +19,7 @@
                     <div class="container px-12 py-8 mx-auto">
                         <h3 class="text-2xl font-bold text-purple-700">منتجاتنا</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
-                        <div class="grid grid-cols-1 gap-2 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 d-lg-flex felx-row">
+                        <div class="grid grid-cols-1 gap-2 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 d-lg-flex flex-row align-content-start flex-wrap ">
                             @foreach ($products as $product)
                             <div class="w-75 max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md ">
                                 <div class="px-5 py-3">

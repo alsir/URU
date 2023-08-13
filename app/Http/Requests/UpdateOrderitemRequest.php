@@ -27,6 +27,7 @@ class UpdateOrderitemRequest extends FormRequest
             'product_id' => 'required|numeric',
             'order_id' => 'required|numeric',
             'quantity' => 'required|numeric',
+            'product_name' => 'required|max:255|string',
         ];
     }
 }

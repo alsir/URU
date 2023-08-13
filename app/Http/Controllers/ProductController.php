@@ -123,15 +123,6 @@ class ProductController extends Controller
     {
         $product =  product::find($id)->delete();
         toastr()->success('تم حذف بيانات المنتج بنجاح !!');
-        $products = Product::orderBy('id','Desc')->get();
-        $products_counter= $products->count();
-        $categories = Category::all();
-        $manfacturers = Manfacturer::all();
-        return view('admin.product.index')
-        ->with('products',$products)
-        ->with('products_counter',$products_counter)
-        ->with('categories', $categories)
-        ->with('manfacturers', $manfacturers)
-        ;
+        return back();
     }
 }

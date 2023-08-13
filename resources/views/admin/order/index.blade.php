@@ -93,8 +93,10 @@
                                     <tr>
                                         <th>#</th>
                                         <th>منفذ العملية</th>
+                                        <th>اسم العميل</th>
                                         <th>نوع الطلب</th>
                                         <th>المجموع</th>
+                                        <th>التاريخ</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -103,6 +105,7 @@
                                         <tr>
                                             <td><a href="/admin/order/{{$order->id}}">{{$order->id}}</a></td>
                                             <td>{{ $order->name }}</td>
+                                            <td>{{ $order->costumer_name }}</td>
                                             <td>
                                                 @if ($order->order_type == 0)
                                                     <span class="badge badge-danger">مببيعات</span>
@@ -111,6 +114,7 @@
                                                 @endif
                                             </td>
                                             <td>{{ $order->total }}</td>
+                                            <td>{{ $order->created_at }}</td>
                                                <td> <button class="btn btn-success" name="edit_button"
                                                     value="{{ $order->id }}" data-toggle="modal"
                                                     data-target="#edit_modal"><i class="fa fa-edit"></i></button>

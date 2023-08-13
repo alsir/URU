@@ -12,6 +12,7 @@
             @endif
         </h3>
         <p> منفذ العملية {{$order->name}}</p>
+        <p> اسم العميل {{$order->costumer}}</p>
         <p class="card-text">
             المجموع:{{$order->total}} 
         </p>
@@ -24,8 +25,8 @@
                 <th>#</th>
                 <th>رقم الطلب</th>
                 <th>رقم المنتج</th>
+                <th>اسم المنتج</th>
                 <th>الكمية </th>
-                <th></th>
                 
             </tr>
         </thead>
@@ -41,21 +42,11 @@
                     </td> --}}
                     <td><a href="/admin/order/{{$orderitem->order_id}}">{{ $orderitem->order_id }}</a></td>
                     <td><a href="/admin/product/{{$orderitem->product_id}}">{{ $orderitem->product_id }}</a></td>
-                    <td>{{ $orderitem->quantity }}</td>
-                       <td> <button class="btn btn-success" name="edit_button"
-                            value="{{ $orderitem->id }}" data-toggle="modal"
-                            data-target="#edit_modal"><i class="fa fa-edit"></i></button>
-                        <button class="btn btn-danger mr-2"
-                            onclick="if(confirm('هل أنت متأكد ؟')){document.getElementById('delete-users_{{ $orderitem->id }}').submit();}else{
-                    event.preventDefault();}"><i
-                                class="fa fa-trash"></i></button>
-                        <form id="delete-users_{{ $orderitem->id }}"
-                            action="/admin/orderitem/{{ $orderitem->id }}" method="POST"
-                            class="d-none">
-                            @csrf
-                            @method('DELETE')
-                        </form>
+                    <td> 
+                        {{ $orderitem->product_name }}
                     </td>
+                    <td>{{ $orderitem->quantity }}</td>
+                       
                 </tr>
             @endforeach
         </tbody>

@@ -26,16 +26,6 @@
                         <button class="btn btn-success" name="edit_button"
                                                     value="{{ $product->id }}" data-toggle="modal"
                                                     data-target="#edit_modal"><i class="fa fa-edit"></i></button>
-                      <button class="btn btn-danger mr-2"
-                                                    onclick="if(confirm('هل أنت متأكد ؟')){document.getElementById('delete-users_{{ $product->id }}').submit();}else{
-                                            event.preventDefault();}"><i
-                                                        class="fa fa-trash"></i>
-                                                <form id="delete-users_{{ $product->id }}"
-                                                    action="/admin/product/{{ $product->id }}" method="POST"
-                                                    class="d-none">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
                        </button>
                     </div>
                 </div>

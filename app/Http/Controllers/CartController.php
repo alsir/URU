@@ -34,9 +34,11 @@ class CartController extends Controller
      foreach($cartItems as $cartItem){
         $product_id = $cartItem->id;
         $quantity= $cartItem->quantity;
+        $product_name= $cartItem->name;
         $cartItem=new Orderitem();
         $cartItem->product_id = $product_id;
         $cartItem->order_id = $order_id;
+        $cartItem->product_name = $product_name;
         $cartItem->quantity = $quantity;
         $cartItem ->save();
         $product = product::find($cartItem->product_id);

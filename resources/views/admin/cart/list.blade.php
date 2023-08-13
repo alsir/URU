@@ -11,13 +11,15 @@
                 <thead>
                     <tr>
                         <th class="text-left">المنتج</th>
+                        <th class="text-left">الكمية</th>
                         <th class="text-right">المجموع</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($cartItems as $cartItem)
                     <tr>
-                        <td class="text-left"> {{$cartItem->name}} <span>× {{$cartItem->quantity}}</span></td>
+                        <td class="text-left"> {{$cartItem->name}} </td>
+                        <td class="text-left"> {{$cartItem->quantity}} </td>
                         <td class="text-right">{{$cartItem->quantity * $cartItem->price}}  </td>  
                     </tr>
                     @endforeach
@@ -25,6 +27,7 @@
                 <tfoot>
                     <tr class="total-price">
                         <th class="text-left">المجموع</th>
+                        <th class="text-left"></th>
                         <td class="text-right">{{ Cart::getTotal() }}</td>
                     </tr>
                 </tfoot>

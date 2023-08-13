@@ -50,6 +50,7 @@ class OrderitemController extends Controller
         $orderitem=new Orderitem();
         $orderitem->product_id = $request->product_id;
         $orderitem->order_id = $request->order_id;
+        $orderitem->product_name = $request->product_name;
         $orderitem->quantity = $request->quantity;
         $orderitem ->save();
         toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
@@ -98,6 +99,7 @@ class OrderitemController extends Controller
         $orderitem=orderitem::find($id);
         $orderitem->product_id = $request->product_id;
         $orderitem->order_id = $request->order_id;
+        $orderitem->product_name = $request->product_name;
         $orderitem->quantity = $request->quantity;
         $orderitem ->save();
         toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
