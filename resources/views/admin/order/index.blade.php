@@ -158,6 +158,13 @@
                             <div class="row">
                                 
                                         <input type="hidden"  value="{{ Auth::user()->name }}"name="name" >
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">اسم العميل </label>
+                                                <input type="text" class="form-control @error('costumer_name') is-invalid @enderror"
+                                                    name="costumer_name" placeholder="اسم العميل " value="{{ old('costumer_name') }}" required>
+                                            </div>
+                                        </div>
                                     
                                 <div class="col-6">
                                     <div class="form-group">

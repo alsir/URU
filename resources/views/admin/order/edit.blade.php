@@ -14,6 +14,13 @@
             </div>
             <div class="col-6">
                 <div class="form-group">
+                    <label for="first-name-vertical">اسم العميل </label>
+                    <input type="text" class="form-control @error('costumer_name') is-invalid @enderror"
+                        name="costumer_name" placeholder="اسم العميل " value="{{ old('costumer_name' ,$order->costumer_name) }}" required>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
                     <label for="email-id-vertical">حالة الطلب</label>
                     <select name="order_status" class="form-control" required>
                         <option value="0" @selected(old('order_status' ,$order->order_status) == 0)>مبيعات</option>

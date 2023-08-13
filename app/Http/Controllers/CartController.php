@@ -28,6 +28,7 @@ class CartController extends Controller
      $order = new Order();
      $order->name = $request->name;
      $order->total=$request->total;
+     $order->costumer_name=$request->costumer_name;
      $order->order_type = $request->order_type;
      $order->save();
      $order_id = $order->id;

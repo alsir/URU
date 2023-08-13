@@ -55,6 +55,7 @@ class OrderController extends Controller
         $order=new order();
         $order->total = $request->total;
         $order->name = $request->name;
+        $order->costumer_name=$request->costumer_name;
         $order ->save();
         toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
         return back();
@@ -102,6 +103,7 @@ class OrderController extends Controller
         $order=order::find($id);
         $order->total = $request->total;
         $order->name = $request->name;
+        $order->costumer_name=$request->costumer_name;
         $order ->save();
         toastr()->success('تم حفظ بيانات الطلب بنجاح !!');
         return back();
