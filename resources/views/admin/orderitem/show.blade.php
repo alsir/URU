@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'المنتجات ')
+@section('title', 'وحدات الطلب ')
 @section('content')
 <section class="app-ecommerce-details">
     <div class="card">
@@ -13,14 +13,19 @@
                 </div> --}}
                 <div class="col-12 col-md-7">
                     <h4>{{$product->name}}</h4>
-                    <span class="card-text item-company">بواسطة <a href="javascript:void(0)" class="company-name">{{$manfacturer->name}}</a></span>
+                    <span class="card-text item-company">بواسطة 
+                        @foreach ($manfacturering as $manfacturer)
+                       {{ $manfacturer->name }}
+                        @endforeach</span>
                     <div class="ecommerce-details-price d-flex flex-wrap mt-1">
                         <h4 class="item-price mr-1">السعر - {{$product->price}}</h4>
                         <h4 class="item-price mr-1">الكمية - {{$product->quantity}}</h4>
                         
                     </div>
                     <p class="card-text">
-                        {{$category->name}}
+                        @foreach ($categorying as $category)
+                        {{ $category->name }}
+                         @endforeach
                     </p>
                     <hr />
                     
@@ -29,16 +34,6 @@
                         <button class="btn btn-success" name="edit_button"
                                                     value="{{ $orderitem->id }}" data-toggle="modal"
                                                     data-target="#edit_modal"><i class="fa fa-edit"></i></button>
-                      <button class="btn btn-danger mr-2"
-                                                    onclick="if(confirm('هل أنت متأكد ؟')){document.getElementById('delete-users_{{ $orderitem->id }}').submit();}else{
-                                            event.preventDefault();}"><i
-                                                        class="fa fa-trash"></i></button>
-                                                <form id="delete-users_{{ $orderitem->id }}"
-                                                    action="/admin/product/{{ $orderitem->id }}" method="POST"
-                                                    class="d-none">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
                     </div>
                 </div>
             </div>

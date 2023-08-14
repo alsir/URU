@@ -8,7 +8,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="first-name-vertical">المجموع</label>
-                    <input type= "number"step="0.01" min="0" max="10" class="form-control @error('total') is-invalid @enderror"
+                    <input type= "number"step="0.01" min="0" max="1000000000" class="form-control @error('total') is-invalid @enderror"
                         name="total" placeholder="المجموع" value="{{ old('total' ,$order->total) }}" required>
                 </div>
             </div>

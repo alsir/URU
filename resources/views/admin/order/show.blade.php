@@ -11,8 +11,8 @@
                 <span class="badge badge-success"> مشاريع</span>
             @endif
         </h3>
-        <p> منفذ العملية {{$order->name}}</p>
-        <p> اسم العميل {{$order->costumer}}</p>
+        <p> منفذ العملية :{{$order->name}}</p>
+        <p> اسم العميل :{{$order->costumer_name}}</p>
         <p class="card-text">
             المجموع:{{$order->total}} 
         </p>
@@ -33,7 +33,7 @@
         <tbody>
             @foreach ($orderitems as $orderitem)
                 <tr>
-                    <td><a href="/admin/orderitem/{{$orderitem->id}}">{{$orderitem->id}}</a></td>
+                    <td>{{$orderitem->id}}</td>
                     {{-- <td>
                         <div class="avatar mr-1 avatar-xl">
                             <img src="{{ asset($product->photo) }}" alt="avtar img holder"

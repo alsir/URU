@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\Orderitem;
 use App\Http\Requests\StoreOrderitemRequest;
 use App\Http\Requests\UpdateOrderitemRequest;
+use App\Models\Category;
+use App\Models\Manfacturer;
 
 class OrderitemController extends Controller
 {
@@ -67,8 +69,12 @@ class OrderitemController extends Controller
     {
         $orderitem = orderitem::find($id);
         $product = product::find($orderitem->product_id);
-        return view('admin.orderitem.edit')->with('orderitem', $orderitem)
-        ->with('product', $product);
+        $manfacturering = Manfacturer::where('id' , $product->manfacturer_id)->get();
+        $categorying = Category::where('id' , $product->category_id)->get();
+        return view('admin.orderitem.show')->with('orderitem', $orderitem)
+        ->with('product', $product)
+        ->with('manfacturering', $manfacturering)
+        ->with('categorying', $categorying);
     }
 
     /**
