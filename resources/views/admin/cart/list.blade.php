@@ -46,10 +46,26 @@
             </div>
             <div class="col-6">
                 <div class="form-group">
+                    <label for="first-name-vertical">المدفوع</label>
+                    <input type= "number"step="0.01" min="0" max="1000000000000" class="form-control @error('total_paid') is-invalid @enderror"
+                        name="total_paid" placeholder="المدفوع" value="{{ old('total_paid') }}" required>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
                     <label for="email-id-vertical"> نوع الطلب</label>
                     <select name="order_type" class="form-control" required>
                         <option value="0" @selected(old('order_type') == 0)>مبيعات</option>
                         <option value="1" @selected(old('order_type') == 1)>مشاريع</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="email-id-vertical"> حالة سداد الطلب</label>
+                    <select name="order_payment_status" class="form-control" required>
+                        <option value="0" @selected(old('order_payment_status') == 0)>متبقي</option>
+                        <option value="1" @selected(old('order_payment_status') == 1)>تم التسديد</option>
                     </select>
                 </div>
             </div>

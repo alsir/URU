@@ -27,6 +27,8 @@ class StoreOrderRequest extends FormRequest
             'total' => 'required|numeric',
             'name' => 'required|max:255|string',
             'costumer_name' => 'required|max:255|string',
+            'total_paid' => 'required|numeric',
+            'order_payment_status' => 'required|numeric',
 
             
         ];

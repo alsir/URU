@@ -29,6 +29,8 @@ class CartController extends Controller
      $order->name = $request->name;
      $order->total=$request->total;
      $order->costumer_name=$request->costumer_name;
+     $order->total_paid = $request->total_paid;
+     $order->order_payment_status = $request->order_payment_status;
      $order->order_type = $request->order_type;
      $order->save();
      $order_id = $order->id;

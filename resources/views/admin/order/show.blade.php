@@ -1,20 +1,33 @@
 @extends('layouts.app')
-@section('title', ', الطلبات ')
+@section('title', 'الطلبات ')
 @section('content')
 <div class="card position-center">
     <div class="card-body">
         <h3 class="card-title text-center">طلب رقم :{{$order->id}}</h3>
         <h3 class=" text-center">
-            @if ($order->order_status == 0)
+            @if ($order->order_type == 0)
                 <span class="badge badge-danger">مبيعات</span>
             @else
                 <span class="badge badge-success"> مشاريع</span>
+            @endif
+        </h3>
+        <h3 class=" text-center">
+            @if ($order->order_payment_status == 0)
+                <span class="badge badge-danger">متبقي </span>
+            @else
+                <span class="badge badge-success"> تم التسديد</span>
             @endif
         </h3>
         <p> منفذ العملية :{{$order->name}}</p>
         <p> اسم العميل :{{$order->costumer_name}}</p>
         <p class="card-text">
             المجموع:{{$order->total}} 
+        </p>
+        <p class="card-text">
+            المدفوع:{{$order->total_paid}} 
+        </p>
+        <p class="card-text">
+            المطلوب:{{ $order->total - $order->total_paid}} 
         </p>
     </div>
 </div>
