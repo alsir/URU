@@ -25,9 +25,11 @@ class FilterController extends Controller
                 }
             )->paginate(5);
         $order_count= $orders->count();
+        $order_sum = $orders->sum('total_paid');
         $orders_by_sells=$orders->where('order_type',0)->count();
         $orders_by_projects=$orders->where('order_type',1)->count();
         return view('admin.order.index')->with('orders',$orders)
+        ->with('order_sum',$order_sum)
         ->with('order_count',$order_count)
         ->with('orders_by_sells',$orders_by_sells)
         ->with('orders_by_projects',$orders_by_projects);

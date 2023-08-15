@@ -24,6 +24,19 @@
         </div>
     </div>
 </div>
+<div class="col-xl-2 col-md-4 col-sm-6">
+    <div class="card text-center">
+        <div class="card-body">
+            <div class="avatar bg-success p-50 mb-1">
+                <div class="avatar-content">
+                    <i data-feather="eye" class="font-medium-5 fa fa-dollar"></i>
+                </div>
+            </div>
+            <h2 class="">{{$total}}</h2>
+            <p class="card-text">قيمة المخزن</p>
+        </div>
+    </div>
+</div>
 
 </div>
    

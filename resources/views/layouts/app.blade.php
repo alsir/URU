@@ -148,7 +148,7 @@
                             data-i18n="Starter kit">المنتجات</span></a>
                 </li>
                 @endif
-                @if(Auth::user()->user_type_id == 1)
+                @if(Auth::user()->user_type_id == 1 || Auth::user()->user_type_id == 2)
                 <li class="nav-item {{ request()->is('admin/order') ? 'active' : '' }}"><a href="/admin/order"><i class="feather icon-archive"></i><span class="menu-title"
                     data-i18n="Starter kit">المبيعات</span></a>
                 </li>

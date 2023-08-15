@@ -10,7 +10,7 @@
         </div>
     </div>
 </div>
-<div class="col-xl-8 col-md-6 col-12">
+<div class="col-xl-12 col-md-12 col-12">
     <div class="card card-statistics">
         <div class="card-header">
             <h4 class="card-title"> احصائيات </h4>    
@@ -53,6 +53,19 @@
                         <div class="media-body my-auto">
                             <h4 class="font-weight-bolder mb-0">{{$orders_by_sells}}</h4>
                             <p class="card-text font-small-3 mb-0"> المبيعات</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                    <div class="media">
+                        <div class="avatar bg-primary mr-2">
+                            <div class="avatar-content">
+                                <i data-feather="trending-up" class="avatar-icon font-medium-2 fa fa-dollar"></i>
+                            </div>
+                        </div>
+                        <div class="media-body my-auto">
+                            <h4 class="mb-0">{{$order_sum}}</h4>
+                            <p class="card-text font-small-3 mb-0">المبالغ المدفوعة</p>
                         </div>
                     </div>
                 </div>

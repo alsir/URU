@@ -17,6 +17,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::orderBy('id','Desc')->get();
+        $order_sum = Order::all()->sum('total_paid');
         $order_count= $orders->count();
         $orders_sells=Order::where('order_type',0);
         $orders_products=Order::where('order_type',1);
@@ -26,6 +27,7 @@ class OrderController extends Controller
 
         return view('admin.order.index')
         ->with('orders',$orders)
+        ->with('order_sum',$order_sum)
         ->with('order_count',$order_count)
         ->with('orders_by_sells',$orders_by_sells)
         ->with('orders_by_projects',$orders_by_projects)

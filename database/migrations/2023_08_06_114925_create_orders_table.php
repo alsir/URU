@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('costumer_name');
             $table->integer('order_type');
             $table->bigInteger('total');
+            $table->integer('order_payment_status');
+            $table->bigInteger('total_paid');
             $table->timestamps();
         });
     }

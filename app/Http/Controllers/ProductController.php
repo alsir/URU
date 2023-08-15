@@ -21,9 +21,14 @@ class ProductController extends Controller
         $products_counter= $products->count();
         $categories = Category::all();
         $manfacturers = Manfacturer::all();
+        $total = 0;
+        foreach($products as $product){
+            $total = $total + ($product->quantity *$product->price);
+        }
 
         return view('admin.product.index')
         ->with('products',$products)
+        ->with('total',$total)
         ->with('products_counter',$products_counter)
         ->with('categories', $categories)
         ->with('manfacturers', $manfacturers)
