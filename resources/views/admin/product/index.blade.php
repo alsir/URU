@@ -24,6 +24,7 @@
         </div>
     </div>
 </div>
+@if(Auth::user()->user_type_id  == 1)
 <div class="col-xl-2 col-md-4 col-sm-6">
     <div class="card text-center">
         <div class="card-body">
@@ -37,6 +38,7 @@
         </div>
     </div>
 </div>
+@endif
 
 </div>
    

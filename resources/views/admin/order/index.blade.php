@@ -56,6 +56,7 @@
                         </div>
                     </div>
                 </div>
+                @if(Auth::user()->user_type_id  == 1)
                 <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
                     <div class="media">
                         <div class="avatar bg-primary mr-2">
@@ -69,6 +70,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>
