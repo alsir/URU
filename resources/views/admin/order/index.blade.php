@@ -75,14 +75,14 @@
         </div>
     </div>
 </div>
-<form action="/admin/order/someorders" method="get">
+{{-- <form action="/admin/order/someorders" method="get">
     @csrf
     <div class="input-group mb-3">
         <input type="date" class="form-control" name="start_date">
         <input type="date" class="form-control" name="end_date">
         <button class="btn btn-primary" type="submit">موافقة</button>
     </div>
-</form>
+</form> --}}
     <div class="content-body">
         <div class="col-12">
             <div class="card">

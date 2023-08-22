@@ -33,7 +33,7 @@ Route::prefix('admin')->middleware(['auth','web'])->group(function () {
     Route::get('/edit_profile',[ProfileController::class,'edit_profile']);
     Route::post('/update_profile',[ProfileController::class,'update_profile']);
     Route::post('/update_password',[ProfileController::class,'update_password']);
-    Route::get('/order/someorders',[FilterController::class,'sort_by_date']);
+    Route::get('/order/someorders',[FilterController::class,'index']);
     Route::get('/ordering', [CartController::class, 'ordering']);
     Route::post('/ordering', [CartController::class, 'orderingComfirming']);
     Route::get('/cart', [CartController::class, 'cartList'])->name('cart.list');
