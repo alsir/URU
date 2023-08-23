@@ -74,6 +74,13 @@
         <div class="navbar-wrapper">
             <div class="navbar-container content">
                 <div class="navbar-collapse" id="navbar-mobile">
+                    <div class="navbar-container d-flex content">
+                        <div class="bookmark-wrapper d-flex align-items-center">
+                            <ul class="nav navbar-nav d-xl-none">
+                                <li class="nav-item"><a class="nav-link menu-toggle" href="javascript:void(0);"><i class="feather icon-menu" data-feather="menu"></i></a></li>
+                            </ul>  
+                        </div>
+                    </div>
 
                     <ul class="nav navbar-nav float-left ml-auto">
                         <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link"
@@ -88,6 +95,7 @@
                                     German</a><a class="dropdown-item" href="#" data-language="pt"><i
                                         class="flag-icon flag-icon-pt"></i> Portuguese</a></div>
                         </li>
+                        
                         <li class="dropdown dropdown-user nav-item"><a
                                 class="dropdown-toggle nav-link dropdown-user-link" href="#"
                                 data-toggle="dropdown">

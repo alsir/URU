@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'المنتجات ')
 @section('content')
-<section class="app-ecommerce-details col-4">
+<section class="app-ecommerce-details col-l-4 col-sm-12">
     <div class="card">
         <!-- Product Details starts -->
         <div class="card-body">
