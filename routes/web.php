@@ -36,8 +36,8 @@ Route::prefix('admin')->middleware(['auth','web'])->group(function () {
     Route::get('/order/someorders',[FilterController::class,'index']);
     Route::get('/ordering', [CartController::class, 'ordering']);
     Route::post('/ordering', [CartController::class, 'orderingComfirming']);
-    Route::get('/cart', [CartController::class, 'cartList'])->name('cart.list');
-    Route::post('/cart', [CartController::class, 'addToCart'])->name('cart.store');
+    Route::get('/cart', [CartController::class, 'cartList']);
+    Route::post('/cart', [CartController::class, 'addToCart']);
     Route::post('/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
     Route::post('/remove', [CartController::class, 'removeCart'])->name('cart.remove');
     Route::resource('/category',CategoryController::class);

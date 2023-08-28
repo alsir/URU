@@ -119,7 +119,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="form form-vertical" action="/admin/product/" method="POST" enctype="multipart/form-data">
+                    <form class="form form-vertical" action="/admin/product" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-body">
                             <div class="row">
@@ -135,7 +135,7 @@
                                         <label for="email-id-vertical">فئة المنتج</label>
                                         <select name="category_id" class="form-control" required>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}" @selected(old('category_id') == $category->id)>
+                                                <option value="{{ $category->id }}" @selected(old('category_id') )>
                                                     {{ $category->name }}</option>
                                             @endforeach
                                         </select>
@@ -146,7 +146,7 @@
                                         <label for="email-id-vertical">مصنع المنتج</label>
                                         <select name="manfacturer_id" class="form-control" required>
                                             @foreach ($manfacturers as $manfacturer)
-                                                <option value="{{ $manfacturer->id }}" @selected(old('manfacturer_id') == $manfacturer->id)>
+                                                <option value="{{ $manfacturer->id }}" @selected(old('manfacturer_id'))>
                                                     {{ $manfacturer->name }}</option>
                                             @endforeach
                                         </select>
